@@ -1,0 +1,1 @@
+This is file should be in the resources folder
