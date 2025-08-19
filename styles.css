@@ -373,18 +373,116 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
+
+/* Rating Section Styles */
 .price-section {
     padding-top: var(--spacing-md);
     border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.price {
-    font-size: 1.25rem;
+.rating-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.rating-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     font-weight: 600;
+    margin-bottom: 0.1rem;
+}
+
+.rating-premium {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
     background: var(--gradient-primary);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    letter-spacing: 0.01em;
+    position: relative;
+    transition: color var(--transition-normal);
+}
+
+.rating-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    transition: color var(--transition-normal);
+}
+
+.rating-divider, .rating-max {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
+.rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+}
+
+.star {
+    color: var(--accent-silver);
+    filter: drop-shadow(0 0 2px var(--accent-gold));
+    transition: color var(--transition-normal), transform var(--transition-normal);
+    font-size: 1.2em;
+    opacity: 0.7;
+}
+.star.gold {
+    color: var(--accent-gold);
+    opacity: 1;
+    text-shadow: 0 0 8px var(--accent-gold-deep), 0 0 2px var(--accent-gold);
+}
+.star.half {
+    background: linear-gradient(90deg, var(--accent-gold) 50%, var(--accent-silver) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    color: var(--accent-gold);
+    opacity: 1;
+    text-shadow: 0 0 8px var(--accent-gold-deep), 0 0 2px var(--accent-gold);
+}
+
+.fragrance-card:hover .rating-premium {
+    color: var(--accent-gold);
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-shadow: 0 0 12px var(--accent-gold), 0 0 4px var(--accent-gold-deep);
+}
+.fragrance-card:hover .star.gold,
+.fragrance-card:hover .star.half {
+    color: var(--accent-copper);
+    text-shadow: 0 0 16px var(--accent-gold), 0 0 8px var(--accent-copper);
+    transform: scale(1.15) rotate(-3deg);
+    opacity: 1;
+}
+.fragrance-card:hover .star {
+    color: var(--accent-bronze);
+    opacity: 0.9;
+    transform: scale(1.1);
 }
 
 /* Quote Section */
