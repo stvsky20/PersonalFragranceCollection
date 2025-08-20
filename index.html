@@ -50,6 +50,11 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" onclick="scrollToSection('hero')" aria-label="Back to top">
+        <span class="back-to-top-icon">↑</span>
+    </button>
+
     <!-- Collection Section -->
     <section id="collection" class="collection-section">
         <div class="container">
@@ -288,8 +293,30 @@
 
     <script>
         function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            // If sectionId is 'hero', scroll to the top of the page
+            if (sectionId === 'hero') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }
         }
+
+        // Show/hide back-to-top button based on scroll position
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const heroSection = document.querySelector('.hero-section');
+        function handleBackToTopVisibility() {
+            if (!backToTopBtn || !heroSection) return;
+            const heroRect = heroSection.getBoundingClientRect();
+            // If the bottom of hero is below 80px from top, hide button
+            if (heroRect.bottom > 80) {
+                backToTopBtn.classList.add('hidden');
+            } else {
+                backToTopBtn.classList.remove('hidden');
+            }
+        }
+        window.addEventListener('scroll', handleBackToTopVisibility);
+        window.addEventListener('resize', handleBackToTopVisibility);
+        document.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
     </script>
 </body>
 </html>
