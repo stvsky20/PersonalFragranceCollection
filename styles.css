@@ -1,5 +1,93 @@
-/* Back to Top Button */
+/* References Popup */
+.references-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 11, 0.75);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+.references-popup.show {
+    display: flex;
+}
+.references-popup-content {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-luxury);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    min-width: 320px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeInUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.references-title {
+    font-family: var(--font-primary);
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.references-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+.references-list li {
+    margin-bottom: 0.7rem;
+}
+.references-list a {
+    color: var(--accent-gold);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.references-list a:hover {
+    color: var(--accent-copper);
+}
+.references-close {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.3rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 10;
+    padding: 0;
+    line-height: 1;
+}
+.references-close:hover {
+    color: var(--accent-gold);
+    transform: scale(1.15) rotate(8deg);
+}
 
+@media (max-width: 600px) {
+    .references-popup-content {
+        padding: 1.2rem 0.7rem 1rem 0.7rem;
+        min-width: 0;
+    }
+    .references-btn {
+        top: 1.1rem;
+        right: 1.1rem;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.98rem;
+    }
+}
 /* Back to Top Button */
 .back-to-top {
     position: fixed;
@@ -52,7 +140,7 @@
     }
 }
 
-/* Local Font Faces */
+/* Local Fonts */
 @font-face {
     font-family: 'Inter';
     src: url('resources/Fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
@@ -271,6 +359,20 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-primary);
     border: 2px solid var(--accent-gold);
     box-shadow: var(--shadow-card);
+}
+
+.btn-tertiary {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 2px solid var(--accent-silver);
+    box-shadow: var(--shadow-elegant);
+}
+
+.btn-tertiary:hover {
+    background: var(--accent-silver);
+    color: var(--bg-primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-luxury);
 }
 
 .btn-secondary:hover {
